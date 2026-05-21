@@ -10,22 +10,28 @@ public class Main {
         //decleartion
 
         
-        System.out.print("Hi! Welcome to the Duck Pool Caculator");
+        System.out.println("Hi! Welcome to the Duck Pool Caculator");
            
-        System.out.print("Please enter a length for the pool in Meters "); 
-            int poolLength = Scanner.nextInt();
+        System.out.print("Please enter a Length for the pool in Meters "); 
+            double poolLength = Scanner.nextInt();
 
         System.out.print("Please enter a Width for the pool in Meters "); 
-            int poolWidth = Scanner.nextInt();
+            double poolWidth = Scanner.nextInt();
 
         
-        double duckArea = 0.25; //its 25cm worth of area
-        int totalPoolArea = poolLength * poolWidth * 2; //this is for cacualting the measuments of both pools
-        double totalPoolDucks = (totalPoolArea / duckArea );
+        
+        
+        
+        
+        
+        
+        double duckArea = 0.25; //the duck is 25cm worth of area
+        double totalPoolArea = poolLength * poolWidth; //this is for cacualting the measuments of the pool
+        double totalPoolDucks = totalPoolArea / duckArea;
 
         Scanner.close();
         
-        System.out.print(totalPoolDucks); 
+        System.out.print("The "totalPoolDucks); 
         
     }
 }
