@@ -9,11 +9,6 @@ public class Main {
         Scanner Scanner = new Scanner(System.in);
         //decleartion
 
-        int poolLength;
-        int poolWidth;
-        int duckArea = ; //its 25cm worth of area
-        int totalPoolArea = poolLength * poolWidth * 2; //this is for cacualting the measuments of both pools
-        int totalPoolDucks = (totalPoolArea / duckArea );
         
         System.out.print("Hi! Welcome to the Duck Pool Caculator");
            
@@ -24,10 +19,13 @@ public class Main {
             int poolWidth = Scanner.nextInt();
 
         
+        double duckArea = 0.25; //its 25cm worth of area
+        int totalPoolArea = poolLength * poolWidth * 2; //this is for cacualting the measuments of both pools
+        double totalPoolDucks = (totalPoolArea / duckArea );
 
         Scanner.close();
         
-        
+        System.out.print(totalPoolDucks); 
         
     }
 }
