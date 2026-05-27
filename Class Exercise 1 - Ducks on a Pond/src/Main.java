@@ -14,8 +14,7 @@ public class Main {
            
         System.out.print("Please enter a Length for the pool in Meters "); 
             double poolLength = Scanner.nextInt();
-            
-
+        
         System.out.print("Please enter a Width for the pool in Meters "); 
             double poolWidth = Scanner.nextInt();
         
