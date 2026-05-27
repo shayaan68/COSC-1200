@@ -13,23 +13,19 @@ public class main {
         System.out.println("Hello, Welcome to the number guesser!");
         System.out.print("Please enter a guess for the number that was randomly selected"); 
             double userSelectedNumber = Scanner.nextInt();
-
-            if (userSelectedNumber >= 10 && userSelectedNumber >= 0); {
-
-                System.out.println("This is to see if the if else statments work");
+            
+            while (userSelectedNumber % 1 == 0)
+                
+                if (userSelectedNumber >= 10 && userSelectedNumber >= 0); {
+                   
+    
+                else {
+                    
+                }
 
         } 
-            else{
-              System.out.println("Error! Please enter a number in between or equal to 1 or 10");
-            }
-
-        
-        
-
-        
-        
-        
-    
+             
+        }
         
     }
-}
+
