@@ -6,28 +6,48 @@
 
 import java.util.Scanner;
 public class main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         Scanner Scanner = new Scanner(System.in);
 
         //user input and validation 
-        double generatedNumberAnswer = (int) Math.random() * 100 + 1;
+        System.out.println("Hello, Welcome to the number guesser!");
+        System.out.print("Please enter a guess for the number that was randomly selected:"); 
+        int generatedNumberAnswer = (int) Math.random() * 100 + 1;
         
-        double userSelectedNumber = -1;
-                
-            while(userSelectedNumber !=  generatedNumberAnswer )
+        int userSelectedNumber = 0;
+            while (userSelectedNumber != generatedNumberAnswer){
+                System.out.print("Please enter a guess for the number that was randomly selected:"); 
+                userSelectedNumber = Scanner.nextInt();{
+                    if (userSelectedNumber > 100 || userSelectedNumber < 1 || userSelectedNumber % 1 != 0) {
+                        System.out.println("ERROR:Please enter a Numeric whole number in  the range of 1-100");
                     
-                    if (userSelectedNumber == generatedNumberAnswer) {
-                        System.out.println(generatedNumberAnswer);
-                        System.out.println(userSelectedNumber);
-                                
-                            } else 
-                                System.out.print("Error please enter a positive numeric whole value in the range of 1-100 ");
-                            {
-                                Scanner.close();
+                    } else {
+                        
+                        if (userSelectedNumber > generatedNumberAnswer) {
+                            System.out.print("You guessed: ");
+                            System.out.print(userSelectedNumber);
+                            System.out.print("and the answer was: ");
+                            System.out.print(generatedNumberAnswer);
+
+                            }else { 
+                                System.out.print(generatedNumberAnswer);
+                                System.out.print(userSelectedNumber);
+
                             }
-                    }  
+                    
+
+                        } 
+                        
+                    }
+                    
+                
                 }
-            } 
+            }
+        }
+    
+                    
+                
+                       
 
 
          
