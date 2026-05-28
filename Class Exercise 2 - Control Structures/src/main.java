@@ -12,39 +12,53 @@ public class main {
         //user input and validation 
         System.out.println("Hello, Welcome to the number guesser!");
         System.out.print("Please enter a guess for the number that was randomly selected:"); 
-        int generatedNumberAnswer = (int) Math.random() * 100 + 1;
+        int generatedNumberAnswer = (int) (Math.random() * 100)  + 1;
         
         int userSelectedNumber = 0;
             while (userSelectedNumber != generatedNumberAnswer){
-                System.out.print("Please enter a guess for the number that was randomly selected:"); 
+                System.out.println("Please enter a guess for the number that was randomly selected:"); 
                 userSelectedNumber = Scanner.nextInt();{
-                    if (userSelectedNumber > 100 || userSelectedNumber < 1 || userSelectedNumber % 1 != 0) {
+                    if (userSelectedNumber > 100 || userSelectedNumber < 1 || userSelectedNumber % 1 == 0) {
                         System.out.println("ERROR:Please enter a Numeric whole number in  the range of 1-100");
                     
-                    } else {
-                        
-                        if (userSelectedNumber > generatedNumberAnswer) {
+                
+                    }else if (userSelectedNumber > generatedNumberAnswer) {
                             System.out.print("You guessed: ");
                             System.out.print(userSelectedNumber);
                             System.out.print("and the answer was: ");
                             System.out.print(generatedNumberAnswer);
+                            System.out.print("meaning that your answer was too high");
+                        }else if (userSelectedNumber < generatedNumberAnswer) {
+                            System.out.print("You guessed: ");
+                            System.out.print(userSelectedNumber);
+                            System.out.print("and the answer was: ");
+                            System.out.print(generatedNumberAnswer);
+                            System.out.print("meaning that your answer was too low");
 
-                            }else { 
-                                System.out.print(generatedNumberAnswer);
+                            }else; {
+                                System.out.print("You guessed: ");
                                 System.out.print(userSelectedNumber);
+                                System.out.print("and the answer was: ");
+                                System.out.print(generatedNumberAnswer);
+                                System.out.print("That means you are correct!");
+                                System.out.print("And it only took you");
+
+
+                        }   
+                System.out.print("Not mueric input");
 
                             }
                     
 
                         } 
-                        
+                    }  
+                    
+                    
                     }
                     
                 
-                }
-            }
-        }
-    
+                
+            
                     
                 
                        
