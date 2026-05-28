@@ -13,18 +13,18 @@ public class main {
         System.out.println("Hello, Welcome to the number guesser!");
         System.out.print("Please enter a guess for the number that was randomly selected:"); 
             double userSelectedNumber = Scanner.nextDouble();
-
-                while (userSelectedNumber % 1 == 0 && userSelectedNumber > 0){
-                    
                 
+                while (userSelectedNumber % 1 == 0 && userSelectedNumber > 0){
                     if (userSelectedNumber <= 100 && userSelectedNumber >= 1) {
-                        
-                        
-                        int generatedNumber = (int)(Math.random() * (100 - 1 + 1)) + 1;
-                            System.out.println(generatedNumber);
-
-        
-                    }else {
+                        double generatedNumberAnswer = (int)(Math.random() * (100 - 1 + 1)) + 1;
+                            if (userSelectedNumber == generatedNumberAnswer); {
+                                System.out.println(generatedNumberAnswer );
+                                System.out.println(userSelectedNumber);
+                                Scanner.close();
+                                return;}
+                                
+                            
+                    }else  {
                         System.out.println("Error!: Please enter a positive number in the RANGE of 1-100");
                         
                     }  
