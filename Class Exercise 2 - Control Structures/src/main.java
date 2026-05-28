@@ -15,37 +15,37 @@ public class main {
         int generatedNumberAnswer = (int) (Math.random() * 100)  + 1;
         
         int userSelectedNumber = 0;
-            while (userSelectedNumber != generatedNumberAnswer){
-                System.out.println("Please enter a guess for the number that was randomly selected:"); 
+            while (userSelectedNumber != generatedNumberAnswer){ //This is to set the loop that while the user genrated number and the number that was generated are not he same, the code will loop itself till it is. 
                 userSelectedNumber = Scanner.nextInt();{
-                    if (userSelectedNumber > 100 || userSelectedNumber < 1 || userSelectedNumber % 1 == 0) {
+                    if (userSelectedNumber < 1 || userSelectedNumber > 100) {
                         System.out.println("ERROR:Please enter a Numeric whole number in  the range of 1-100");
-                    
-                
                     }else if (userSelectedNumber > generatedNumberAnswer) {
                             System.out.print("You guessed: ");
                             System.out.print(userSelectedNumber);
                             System.out.print("and the answer was: ");
                             System.out.print(generatedNumberAnswer);
-                            System.out.print("meaning that your answer was too high");
+                            System.out.print(" meaning that your answer was too high");
                         }else if (userSelectedNumber < generatedNumberAnswer) {
                             System.out.print("You guessed: ");
                             System.out.print(userSelectedNumber);
-                            System.out.print("and the answer was: ");
+                            System.out.print(" and the answer was: ");
                             System.out.print(generatedNumberAnswer);
-                            System.out.print("meaning that your answer was too low");
+                            System.out.print(" meaning that your answer was too low");
 
-                            }else; {
+                        }else if (userSelectedNumber == generatedNumberAnswer) {
                                 System.out.print("You guessed: ");
                                 System.out.print(userSelectedNumber);
                                 System.out.print("and the answer was: ");
                                 System.out.print(generatedNumberAnswer);
                                 System.out.print("That means you are correct!");
                                 System.out.print("And it only took you");
-
+                        }else {
+                                System.out.print("You inputted invaild input, please enter a postiive whole numer in the range of 1-100");
+                                
+                            
 
                         }   
-                System.out.print("Not mueric input");
+                
 
                             }
                     
