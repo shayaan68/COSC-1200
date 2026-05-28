@@ -13,22 +13,21 @@ public class main {
         System.out.println("Hello, Welcome to the number guesser!");
         System.out.print("Please enter a guess for the number that was randomly selected:"); 
             double userSelectedNumber = Scanner.nextDouble();
-            
-            
-            while (userSelectedNumber % 1 == 0){
-                
-                
-                if (userSelectedNumber <= 10 && userSelectedNumber >= 0) {
-                    System.out.println("Ok the vaidation works");
+
+                while (userSelectedNumber % 1 == 0){
                     
-    
-                }else {
-                    System.out.println("Error!: Please enter a POSITIVE NUMBER in the range of 0-10");
-                    
-                }  
-            } 
-                System.out.println("Error!: Please Enter a POSITIVE WHOLE NUMBER in the range of 0-10");
                 
+                    if (userSelectedNumber <= 100 && userSelectedNumber >= 1) {
+                        System.out.println("Ok the vaidation works");
+                        
+        
+                    }else {
+                        System.out.println("Error!: Please enter a POSITIVE NUMBER in the range of 1-100");
+                        
+                    }  
+                } 
+                    System.out.println("Error!: Please Enter a POSITIVE WHOLE NUMBER in the range of 0-100");
+                    
             }
     
         }
