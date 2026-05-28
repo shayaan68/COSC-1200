@@ -14,7 +14,7 @@ public class main {
         System.out.print("Please enter a guess for the number that was randomly selected:"); 
             double userSelectedNumber = Scanner.nextDouble();
 
-                while (userSelectedNumber % 1 == 0){
+                while (userSelectedNumber % 1 == 0 && userSelectedNumber > 0){
                     
                 
                     if (userSelectedNumber <= 100 && userSelectedNumber >= 1) {
@@ -22,11 +22,11 @@ public class main {
                         
         
                     }else {
-                        System.out.println("Error!: Please enter a POSITIVE NUMBER in the range of 1-100");
+                        System.out.println("Error!: Please enter a positive number in the RANGE of 1-100");
                         
                     }  
                 } 
-                    System.out.println("Error!: Please Enter a POSITIVE WHOLE NUMBER in the range of 0-100");
+                System.out.println("Error!: Please Enter a POSITIVE WHOLE NUMBER in the range of 0-100");
                     
             }
     
