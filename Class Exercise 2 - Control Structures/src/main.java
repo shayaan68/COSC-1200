@@ -18,8 +18,11 @@ public class main {
                     
                 
                     if (userSelectedNumber <= 100 && userSelectedNumber >= 1) {
-                        System.out.println("Ok the vaidation works");
                         
+                        
+                        int generatedNumber = (int)(Math.random() * (100 - 1 + 1)) + 1;
+                            System.out.println(generatedNumber);
+
         
                     }else {
                         System.out.println("Error!: Please enter a positive number in the RANGE of 1-100");
