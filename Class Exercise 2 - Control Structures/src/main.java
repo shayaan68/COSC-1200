@@ -10,31 +10,24 @@ public class main {
         Scanner Scanner = new Scanner(System.in);
 
         //user input and validation 
-        System.out.println("Hello, Welcome to the number guesser!");
-        System.out.print("Please enter a guess for the number that was randomly selected:"); 
-            double userSelectedNumber = Scanner.nextDouble();
+        double generatedNumberAnswer = (int) Math.random() * 100 + 1;
+        
+        double userSelectedNumber = -1;
                 
-                while (userSelectedNumber % 1 == 0 && userSelectedNumber > 0){
-                    if (userSelectedNumber <= 100 && userSelectedNumber >= 1) {
-                        double generatedNumberAnswer = (int)(Math.random() * (100 - 1 + 1)) + 1;
-                            if (userSelectedNumber == generatedNumberAnswer); {
-                                System.out.println(generatedNumberAnswer );
-                                System.out.println(userSelectedNumber);
-                                Scanner.close();
-                                return;}
-                                
-                            
-                    }else  {
-                        System.out.println("Error!: Please enter a positive number in the RANGE of 1-100");
-                        
-                    }  
-                } 
-                System.out.println("Error!: Please Enter a POSITIVE WHOLE NUMBER in the range of 0-100");
+            while(userSelectedNumber !=  generatedNumberAnswer )
                     
-            }
-    
-        }
-
+                    if (userSelectedNumber == generatedNumberAnswer) {
+                        System.out.println(generatedNumberAnswer);
+                        System.out.println(userSelectedNumber);
+                                
+                            } else 
+                                System.out.print("Error please enter a positive numeric whole value in the range of 1-100 ");
+                            {
+                                Scanner.close();
+                            }
+                    }  
+                }
+            } 
 
 
          
