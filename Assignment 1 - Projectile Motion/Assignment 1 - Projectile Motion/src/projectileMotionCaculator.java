@@ -15,8 +15,13 @@ public class ProjectileMotionCaculator {
             boolean Validation = false;
             double InitialVelocity;
             double Gravity = -9.81;
+            double Vertical;
             double Horizontal;
-            double time;
+            double Time;
+            
+            
+            
+            
             // The loop is set up with the Validation variable being set to false
             // and so untill the user reaches the vaild input where if everything goes through the vaild parts of the if statements, 
             // it will then end the loop via defining the Variable that is called validation as true when all inputs are true
@@ -32,9 +37,9 @@ public class ProjectileMotionCaculator {
                                 // Unlike the degrees the only logic validation that the InitalVelocity needs is just seeing if its more than 0, as negitive movement would not make sense.
                                     if (InitialVelocity > 0) {
 
-                                        Horizontal = (InitialVelocity * Math.cos(Degrees))* time;
+                                        Horizontal = (InitialVelocity * Math.cos(Degrees))* Time;
                                         
-                                        
+                                        Vertical = (InitialVelocity * Math.sin(Degrees)) * Time - 0.5 * Gravity * Time * Time;
 
                                         // This is where the loop will end due to the fact that to reach here would be to have each input pass the validation of each if statemtn in the while loop
                                         Validation = true;
