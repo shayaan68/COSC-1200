@@ -18,35 +18,33 @@ public class ProjectileMotionCaculator {
             double Vertical = 0;
             double Horizontal = 0;
             double Time = 0;
+            double TimeIncrease = 1;
             
            
             // The loop is set up with the Validation variable being set to false
             // and so untill the user reaches the vaild input where if everything goes through the vaild parts of the if statements, 
             // it will then end the loop via defining the Variable that is called validation as true when all inputs are true
             while (!Validation) {
-            System.out.println("Enter the angle of the projectile in degrees");
+            System.out.println("Enter the angle of the projectile in degrees: ");
                 if (Scan.hasNextDouble()) {
                     Degrees = Scan.nextDouble();
                     // This logic validation is becasue while just like the InitalVelocity there cant be a negitive, there also cant be a degrees above 360
                     if (Degrees > 0 && Degrees <= 360) {
-                        System.out.println("Enter the Inital Velocity of the projectile in m/s");
+                        System.out.println("Enter the Inital Velocity of the projectile in m/s: ");
                             if (Scan.hasNextDouble()) {
                                 InitialVelocity = Scan.nextDouble();
                                 // Unlike the degrees the only logic validation that the InitalVelocity needs is just seeing if its more than 0, as negitive movement would not make sense.
                                     if (InitialVelocity > 0) {
 
                                         while (Vertical >= 0) {
-                                        Time = Time + 1;
-                                        Vertical = (InitialVelocity * Math.sin(Degrees)) * Time - 0.5 * Gravity * Time * Time;
-                                        Horizontal = (InitialVelocity * Math.cos(Degrees))* Time;
-                                        System.out.println(Vertical);
+                                        Time += TimeIncrease;
+                                        double FinalTime = ((-(InitialVelocity * Math.sin(Math.toRadians(Degrees))) - Math.sqrt(InitialVelocity * Math.sin(Math.toRadians(Degrees))))/ (-2*9.81/2));
+                                        Vertical = (InitialVelocity * Math.sin(Math.toRadians(Degrees))) * FinalTime - 0.5 * Gravity * Math.sqrt(Time);
+                                        Horizontal = (InitialVelocity * Math.sin(Math.toRadians(Degrees)))* FinalTime;
+                                        System.out.println("The length that the projectile ");
+                                        }
                                         Validation = true;
                                         Scan.close();
-                                        }
-                                        
-                                        
-                                        
-                                    
                                         //Error statement if you typed a numeric input but it was a negtitve for the InitalVelocity
                                         } else {
                                             System.out.println("Invaild Input: The Velocity CANNOT BE LESS than 0");
