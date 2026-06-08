@@ -15,7 +15,7 @@ public class ProjectileMotionCaculator {
             boolean Validation = false;
             double InitialVelocity;
             double Gravity = -9.81;
-            double Vertical;
+            double Vertical = 1;
             double Horizontal;
             double Time = 0;
             
@@ -35,17 +35,17 @@ public class ProjectileMotionCaculator {
                                 // Unlike the degrees the only logic validation that the InitalVelocity needs is just seeing if its more than 0, as negitive movement would not make sense.
                                     if (InitialVelocity > 0) {
 
-                                        Vertical = (InitialVelocity * Math.sin(Degrees)) * Time - 0.5 * Gravity * Time * Time;
-                                        
                                         while (Vertical > 0) {
                                         Time = Time + 1;
-                                            }
-
-                                        
+                                        Vertical = (InitialVelocity * Math.sin(Degrees)) * Time - 0.5 * Gravity * Time * Time;
+                                        System.out.println(Vertical);
+                                        Validation = true;
+                                        Scan.close();
+                                        }
                                         
                                         //Horizontal = (InitialVelocity * Math.cos(Degrees))* Time;
-                                        //Validation = true;
-                                        //Scan.close();
+                                        
+                                        
                                     
                                         //Error statement if you typed a numeric input but it was a negtitve for the InitalVelocity
                                         } else {
