@@ -15,7 +15,7 @@ public class ProjectileMotionCaculator {
             boolean Validation = false;
             double InitialVelocity;
             double Gravity = -9.81;
-            double Vertical = 1;
+            double Vertical = .1;
             double Horizontal;
             double Time = 0;
             
@@ -38,12 +38,12 @@ public class ProjectileMotionCaculator {
                                         while (Vertical > 0) {
                                         Time = Time + 1;
                                         Vertical = (InitialVelocity * Math.sin(Degrees)) * Time - 0.5 * Gravity * Time * Time;
-                                        System.out.println(Vertical);
+                                        Horizontal = (InitialVelocity * Math.cos(Degrees))* Time;
+                                        System.out.println(Horizontal);
                                         Validation = true;
                                         Scan.close();
                                         }
                                         
-                                        //Horizontal = (InitialVelocity * Math.cos(Degrees))* Time;
                                         
                                         
                                     
