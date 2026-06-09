@@ -10,16 +10,14 @@ public class ProjectileMotionCaculator {
     Scanner Scan = new Scanner(System.in);
     System.out.println("Hi! Welcome to the Projectile Motion Calculator!");
         
-            // Setting up the Degrees and Inital Velocities as Doubles since decimals are allowed in physics and made the vaildation Varaiable a Boolian for the while loop 
-            double Degrees;
+            // Setting up all the variables that Ill need for validiation and for the math equations
             boolean Validation = false;
             double InitialVelocity;
-            double Gravity = -9.81;
             double Vertical = 0;
-            double Horizontal = 0;
+            double Horizontal;
             double Time = 0;
             double TimeIncrease = 1;
-            
+            double Degrees;
            
             // The loop is set up with the Validation variable being set to false
             // and so untill the user reaches the vaild input where if everything goes through the vaild parts of the if statements, 
@@ -35,16 +33,26 @@ public class ProjectileMotionCaculator {
                                 InitialVelocity = Scan.nextDouble();
                                 // Unlike the degrees the only logic validation that the InitalVelocity needs is just seeing if its more than 0, as negitive movement would not make sense.
                                     if (InitialVelocity > 0) {
+                                        
 
+                                        //This while loop keeps the loop going as the only other time besdies 0,0 that the veritcal will equal zero is when the projectile finally hits the ground which will dictate the end of the loop
                                         while (Vertical >= 0) {
                                         Time += TimeIncrease;
-                                        double FinalTime = ((-(InitialVelocity * Math.sin(Math.toRadians(Degrees))) - Math.sqrt(InitialVelocity * Math.sin(Math.toRadians(Degrees))))/ (-2*9.81/2));
-                                        Vertical = (InitialVelocity * Math.sin(Math.toRadians(Degrees))) * FinalTime - 0.5 * Gravity * Math.sqrt(Time);
-                                        Horizontal = (InitialVelocity * Math.sin(Math.toRadians(Degrees)))* FinalTime;
-                                        System.out.println("The length that the projectile ");
+                                        //Using the formulas with the changing time as the projectile is moving
+                                        Vertical = ((InitialVelocity * Math.sin(Math.toRadians(Degrees)) * Time - (9.81 * Time*Time)/2));
+                                        Horizontal = (InitialVelocity * Math.cos(Math.toRadians(Degrees)))* Time;
+                                        System.out.println("The current position of the projectile is (" + Horizontal + "," + Vertical + ") at time " + Time);
                                         }
-                                        Validation = true;
-                                        Scan.close();
+                                        //Final time uses the quadratic formula to get the pin point accuracy as to when the projectile finally hit the ground again. That way, we can caculate for the farthest distance traveled by using the exact time
+                                        double FinalTime = (2 * InitialVelocity * Math.sin(Math.toRadians(Degrees))) / 9.81;
+                                        Vertical = (InitialVelocity * Math.sin(Math.toRadians(Degrees))) * Time - 0.5 * 9.81 *(FinalTime * FinalTime);
+                                        Horizontal = (InitialVelocity * Math.cos(Math.toRadians(Degrees)))* FinalTime;
+                                        //Final print statemetns
+                                        System.out.println(("The final time of the projectile is: " + (FinalTime)));
+                                        System.out.println(("and the total distance is: " + (Horizontal) +" meters"));
+                                        
+                                        
+                                        
                                         //Error statement if you typed a numeric input but it was a negtitve for the InitalVelocity
                                         } else {
                                             System.out.println("Invaild Input: The Velocity CANNOT BE LESS than 0");
