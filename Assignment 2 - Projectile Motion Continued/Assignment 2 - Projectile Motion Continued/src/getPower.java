@@ -1,7 +1,7 @@
 // Name: Shayaan Shah
 // Date: June 25th 2026
 // File Name: Assignment 2 - Projectiles Motion continued/getPower()
-// Description: This class is to request for the velocitys input and to ceck if that input is vaild
+// Description: This class is to request for the velocitys input and to check if that input is vaild
 import java.util.Scanner;
 public class getPower {
     public static void main(String[] args){
