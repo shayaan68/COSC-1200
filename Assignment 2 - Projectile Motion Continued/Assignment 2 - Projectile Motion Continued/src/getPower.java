@@ -4,11 +4,12 @@
 // Description: This class is to request for the velocitys input and to check if that input is vaild
 import java.util.Scanner;
 public class getPower {
-    public static void main(String[] args){
-    Scanner Scan = new Scanner(System.in);
-        
-        //declaring the variables Ill need for this class 
-        double velocityPower = 0;
+    private double velocityPower;
+    
+
+    //declaring the variables Ill need for this class 
+    public void caculatePower(){
+        Scanner Scan = new Scanner(System.in);
         boolean velocityPowerVerifiation = false;
         
         // Im using the same verification as my assigmnet 1 as in 
@@ -29,7 +30,10 @@ public class getPower {
                 Scan.next();
             }
             }
-}
+        }
+    public double getPowerCaculations() {
+        return velocityPower;
+    }
 }
 
 

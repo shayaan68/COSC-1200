@@ -1,6 +1,2 @@
-public class runGame {
-    boolean Validation = false
-    
-    while (!Validation); {
-    }
-}
+public class runGame {}
+

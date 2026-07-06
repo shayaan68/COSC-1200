@@ -4,7 +4,6 @@
 // Description: This class is to request for the angle at which the object was thronws input and to check if that input is vaild
 import java.util.Scanner;
 public class getAngle {
-    public static void main(String[] args){
     Scanner Scan = new Scanner(System.in);
         
         //declaring the variables Ill need for this class 
@@ -17,7 +16,7 @@ public class getAngle {
         while (!thrownAngleVerifiation) {
             if (Scan.hasNextDouble()) {
                 thrownAngle = Scan.nextDouble();
-                    if (thrownAngle < 360 && thrownAngle > 0) {
+                    if (thrownAngle < 180 && thrownAngle > 0) {
                         thrownAngleVerifiation = true;
                         Scan.close();
                     } else {
