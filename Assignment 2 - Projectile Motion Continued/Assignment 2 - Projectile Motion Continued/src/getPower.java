@@ -5,11 +5,9 @@
 import java.util.Scanner;
 public class getPower {
     private double velocityPower;
-    
 
     //declaring the variables Ill need for this class 
-    public void caculatePower(){
-        Scanner Scan = new Scanner(System.in);
+    public void caculatePower(Scanner Scan){
         boolean velocityPowerVerifiation = false;
         
         // Im using the same verification as my assigmnet 1 as in 
@@ -20,7 +18,7 @@ public class getPower {
                 velocityPower = Scan.nextDouble();
                     if (velocityPower < 1000 && velocityPower > 0) {
                         velocityPowerVerifiation = true;
-                        Scan.close();
+
                     } else {
                         System.out.println("Invaild Input: Enter a number that is BETWEEN 0 and 1000 m/s for the velocity");
                         Scan.next(); 

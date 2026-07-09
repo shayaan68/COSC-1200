@@ -4,10 +4,11 @@
 // Description: This class is to request for the angle at which the object was thronws input and to check if that input is vaild
 import java.util.Scanner;
 public class getAngle {
-    Scanner Scan = new Scanner(System.in);
-        
-        //declaring the variables Ill need for this class 
-        double thrownAngle = 0;
+    private double thrownAngle;
+    
+    //declaring the variables & the need for this class 
+    public void caculateAngle(Scanner Scan){
+        thrownAngle = 0;
         boolean thrownAngleVerifiation = false;
         
         // Im using the same verification as my assigmnet 1 as in 
@@ -18,15 +19,18 @@ public class getAngle {
                 thrownAngle = Scan.nextDouble();
                     if (thrownAngle < 180 && thrownAngle > 0) {
                         thrownAngleVerifiation = true;
-                        Scan.close();
                     } else {
-                        System.out.println("Invaild Input: Enter a number that is BETWEEN 0 and 360 degrees for the angle that the object was thrown");
+                        System.out.println("Invaild Input: Enter a number that is BETWEEN 0 and 180 degrees for the angle that the object was thrown");
                         Scan.next(); 
                     }
             }else {
-                System.out.println("Invaild Input: Enter a NUMBER that is between 0 and 360 degrees for the angle that the object was thrown");
+                System.out.println("Invaild Input: Enter a NUMBER that is between 0 and 180 degrees for the angle that the object was thrown");
                 Scan.next();
             }
             }
-}
+        }
+    public double getCaculateAngle() {
+        return thrownAngle;
+    
+    }
 }
