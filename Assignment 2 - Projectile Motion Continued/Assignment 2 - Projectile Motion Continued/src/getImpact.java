@@ -1,18 +1,26 @@
 import java.util.Scanner;
 public class getImpact {
     
-    public static void main(String[] args){
-    Scanner Scan = new Scanner(System.in);
+    //declaring the variables Ill need for this class 
+    private double finalImpact;
+    double time = 0;
+    double timeIncrease = 0;
+    double yAxis = 0;
+    double xAxis = 0;
+    boolean impactVerification = false;
+
+
+    //Recalling the two classes for the caculations
+    getPower initialVelocity = new getPower();
+    getAngle thrownAngle = new getAngle();
     
-    double getImpact = 0;
-    double Vertical = 0;
-    double initalTime = 0;
-    double timeIncrease = 1;
+    
 
-    while (Vertical >= 0);
-        initalTime += timeIncrease;
-        getImpact = ((getPower() * Math.sin(Math.toRadians(getAngle())) * timeIncrease - (9.81 * timeIncrease*timeIncrease)/2));
+    public void caculateImpact(Scanner Scan){
+        while (!impactVerification)
+        time += timeIncrease;
+            yAxis = ((initialVelocity * Math.sin(Math.toRadians(thrownAngle)) * time - (9.81 * time*time)/2));
+         
+    }
 
-
-}
 }

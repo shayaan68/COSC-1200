@@ -8,7 +8,7 @@ public class getPower {
 
     //declaring the variables Ill need for this class 
     public void caculatePower(Scanner Scan){
-        boolean velocityPowerVerifiation = false;
+    boolean velocityPowerVerifiation = false;
         
         // Im using the same verification as my assigmnet 1 as in 
         // its scans if the input is a number by seeing if its a double, 
