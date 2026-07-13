@@ -4,7 +4,7 @@
 // Description: This class is to request for the angle at which the object was thronws input and to check if that input is vaild
 import java.util.Scanner;
 public class getAngle {
-    private double thrownAngle;
+    public double thrownAngle;
     
     //declaring the variables & the need for this class 
     public void caculateAngle(Scanner Scan){

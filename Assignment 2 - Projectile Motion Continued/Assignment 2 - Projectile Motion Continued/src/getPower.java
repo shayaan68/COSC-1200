@@ -4,11 +4,12 @@
 // Description: This class is to request for the velocitys input and to check if that input is vaild
 import java.util.Scanner;
 public class getPower {
-    private double velocityPower;
+    public double velocityPower;
 
     //declaring the variables Ill need for this class 
     public void caculatePower(Scanner Scan){
-    boolean velocityPowerVerifiation = false;
+        velocityPower = 0;
+        boolean velocityPowerVerifiation = false;
         
         // Im using the same verification as my assigmnet 1 as in 
         // its scans if the input is a number by seeing if its a double, 
