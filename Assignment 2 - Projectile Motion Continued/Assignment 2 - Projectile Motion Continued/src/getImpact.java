@@ -5,18 +5,17 @@ public class getImpact {
     
     public void caculateImpact(double Velocity, double Angle){
         
-        double yAxis = 0;
-        double xAxis = 0;
         double time = 0;
         double timeIncrease = 1;
-        double finalTime;
-        
-        
         time += timeIncrease;
-        yAxis = ((Velocity * Math.sin(Math.toRadians(Angle)) * time - (9.81 * time*time)/2));
-        xAxis = (Velocity * Math.cos(Math.toRadians(Angle))*time);
-        finalTime = (2 * Velocity * Math.sin(Math.toRadians(Angle))) / 9.81;
-        }
+        double finalTime = (Velocity * Math.cos(Math.toRadians(Angle))*time);
+        finalImpact = (2 * Velocity * Math.cos(Math.toRadians(Angle))) / 9.81;
+
+
     }
+    public double getFinalImpact() {
+        return finalImpact;
+    }
+}
 
 
