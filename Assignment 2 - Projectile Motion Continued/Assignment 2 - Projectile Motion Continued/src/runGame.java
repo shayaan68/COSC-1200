@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 public class runGame {
 public static void main(String[] args) {
     Scanner Scan = new Scanner(System.in);
@@ -6,6 +7,10 @@ public static void main(String[] args) {
     //Declaring the whole loop to be fasle untill a player decide to end the loop  
     // by using an if statement at the end to trigger the gameVerification being True and stopping the whole loop
     boolean gameVerification = false;
+    double startingPositionMin = 0;
+    double startingPositionMax = 400;
+    double startingPosition = ThreadLocalRandom.current().nextDouble(startingPositionMin, startingPositionMax);
+        
     
 
     
@@ -49,9 +54,9 @@ public static void main(String[] args) {
         double angle2 = playerTwoAngle.getCaculateAngle();
 
 
-        //Now calling on get impact to do the caculations for the objects Ive called it on 
+        //Now calling on get impact to do the caculations for the playerone and two throw objects  
         getImpact playerOneImpact = new getImpact();
-        playerOneImpact.caculateImpact(velocity1, angle1);
+        playerOneImpact.caculateImpact(velocity1, angle1, startingPosition);
         double playerOneThrow = playerOneImpact.getFinalImpact();
 
         getImpact playerTwoImpact = new getImpact();
@@ -64,15 +69,29 @@ public static void main(String[] args) {
             System.out.println(playerOneName +" wins!");
             double playerOneDiffrence = (playerOneThrow - playerTwoThrow);
             System.out.println(playerOneName +" beats "+playerTwoName+"distance by about" + playerOneDiffrence);
-            
-        }/
 
-        
-        
-        
-    }
-    
-    }
+        }else if (playerOneThrow < playerTwoThrow){
+            System.out.println(playerOneName +" Total Distance"+ playerOneImpact);
+            System.out.println(playerTwoName +" Total Distance"+ playerTwoImpact);
+            System.out.println(playerTwoName +" wins!");
+            double playerTwoDiffrence = (playerTwoThrow - playerOneThrow);
+            System.out.println(playerTwoName +" beats " + playerOneName + "distance by about" + playerTwoDiffrence);
+
+        } else (playerTwoThrow == playerOneThrow) {
+            System.out.println(playerOneName +" Total Distance"+ playerOneImpact);
+            System.out.println(playerTwoName +" Total Distance"+ playerTwoImpact);
+            System.out.println("Its a Tie!");
+            double playerTowDiffrence = (playerTwoThrow - playerOneThrow);
+            System.out.println(playerOneName +" and " + playerTwoName + "Landed at the same distance");
+
+
+
+        }
+
+        }
+            
+        }
+
 }
 
 
