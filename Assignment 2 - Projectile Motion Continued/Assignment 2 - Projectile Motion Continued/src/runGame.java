@@ -9,8 +9,8 @@ public static void main(String[] args) {
     boolean gameVerification = false;
     double startingPositionMin = 0;
     double startingPositionMax = 400;
-    double startingPosition = ThreadLocalRandom.current().nextDouble(startingPositionMin, startingPositionMax);
-        
+    double playerOneStartingPosition = ThreadLocalRandom.current().nextDouble(startingPositionMin, startingPositionMax);
+    double playerTwoStartingPosition = ThreadLocalRandom.current().nextDouble(startingPositionMin, startingPositionMax);
     
 
     
@@ -56,36 +56,45 @@ public static void main(String[] args) {
 
         //Now calling on get impact to do the caculations for the playerone and two throw objects  
         getImpact playerOneImpact = new getImpact();
-        playerOneImpact.caculateImpact(velocity1, angle1, startingPosition);
+        playerOneImpact.caculateImpact(velocity1, angle1, playerOneStartingPosition);
         double playerOneThrow = playerOneImpact.getFinalImpact();
 
         getImpact playerTwoImpact = new getImpact();
-        playerTwoImpact.caculateImpact(velocity2, angle2);
+        playerTwoImpact.caculateImpact(velocity2, angle2, playerTwoStartingPosition);
         double playerTwoThrow = playerTwoImpact.getFinalImpact();
         
+
+        //The print Statements for each winner and a tie
         if (playerOneThrow > playerTwoThrow) {
-            System.out.println(playerOneName +" Total Distance"+ playerOneImpact);
-            System.out.println(playerTwoName +" Total Distance"+ playerTwoImpact);
+            System.out.println(playerOneName +" Total Distance: "+ playerOneThrow);
+            System.out.println(playerTwoName +" Total Distance: "+ playerTwoThrow);
             System.out.println(playerOneName +" wins!");
             double playerOneDiffrence = (playerOneThrow - playerTwoThrow);
             System.out.println(playerOneName +" beats "+playerTwoName+"distance by about" + playerOneDiffrence);
+            
+            
 
         }else if (playerOneThrow < playerTwoThrow){
-            System.out.println(playerOneName +" Total Distance"+ playerOneImpact);
-            System.out.println(playerTwoName +" Total Distance"+ playerTwoImpact);
+            System.out.println(playerOneName +" Total Distance"+ playerOneThrow);
+            System.out.println(playerTwoName +" Total Distance"+ playerTwoThrow);
             System.out.println(playerTwoName +" wins!");
             double playerTwoDiffrence = (playerTwoThrow - playerOneThrow);
             System.out.println(playerTwoName +" beats " + playerOneName + "distance by about" + playerTwoDiffrence);
 
-        } else (playerTwoThrow == playerOneThrow) {
-            System.out.println(playerOneName +" Total Distance"+ playerOneImpact);
-            System.out.println(playerTwoName +" Total Distance"+ playerTwoImpact);
+        } else if (playerTwoThrow == playerOneThrow) {
+            System.out.println(playerOneName +" Total Distance"+ playerOneThrow);
+            System.out.println(playerTwoName +" Total Distance"+ playerTwoThrow);
             System.out.println("Its a Tie!");
-            double playerTowDiffrence = (playerTwoThrow - playerOneThrow);
             System.out.println(playerOneName +" and " + playerTwoName + "Landed at the same distance");
 
 
+        // the if statments to ask if you want play again
+        System.out.println("Would you like to play again? (yes/no)");
+        String answer = Scan.nextLine();
 
+            if (answer.equalsIgnoreCase("no")) {
+            gameVerification = true;
+        }
         }
 
         }
