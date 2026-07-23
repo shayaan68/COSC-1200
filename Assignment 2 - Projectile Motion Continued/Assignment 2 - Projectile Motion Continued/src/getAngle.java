@@ -17,11 +17,11 @@ public class getAngle {
         while (!thrownAngleVerifiation) {
             if (Scan.hasNextDouble()) {
                 thrownAngle = Scan.nextDouble();
-                    if (thrownAngle < 180 && thrownAngle > 0) {
+                    if (thrownAngle <= 180 && thrownAngle > 0) {
                         thrownAngleVerifiation = true;
                     } else {
                         System.out.println("Invaild Input: Enter a number that is BETWEEN 0 and 180 degrees for the angle that the object was thrown");
-                        Scan.next(); 
+                        System.out.println("Please enter the angle thrown:");
                     }
             }else {
                 System.out.println("Invaild Input: Enter a NUMBER that is between 0 and 180 degrees for the angle that the object was thrown");
