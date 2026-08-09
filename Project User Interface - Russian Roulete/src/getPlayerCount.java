@@ -5,7 +5,7 @@ public class getPlayerCount {
     
     public void numberOfPlayers (Scanner Scan){
     boolean playerCountVerification = false;
-    int confirmedPlayerCount = 0; 
+    int confirmedPlayerCount; 
 
         while(!playerCountVerification) {
             
