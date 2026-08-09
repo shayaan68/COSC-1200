@@ -1,0 +1,8 @@
+import java.util.Scanner;
+public class getPlayerNames {
+    
+    public String playerNames;
+    
+    public void finalPlayersNames (Scanner Scan){
+    boolean playerNamesVerification = false;
+    
