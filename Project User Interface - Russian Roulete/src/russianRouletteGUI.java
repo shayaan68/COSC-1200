@@ -27,7 +27,7 @@ public class russianRouletteGUI extends JFrame {
 
     private BalloonPanel[] balloons;
 
-    private JLabel gunLabel;
+    private RevolverPanel revolver;
 
 
     public russianRouletteGUI() {
@@ -48,9 +48,10 @@ public class russianRouletteGUI extends JFrame {
     }
 
 
- 
+    
     // PLAYER COUNT SCREEN
     
+
     private void setupPlayerCountScreen() {
 
         mainPanel.removeAll();
@@ -137,7 +138,9 @@ public class russianRouletteGUI extends JFrame {
     }
 
 
+    
     // PLAYER NAME SCREEN
+    
 
     private void setupNameScreen() {
 
@@ -240,8 +243,10 @@ public class russianRouletteGUI extends JFrame {
         mainPanel.revalidate();
     }
 
-   
+
+    
     // START GAME
+    
 
     private void startGame() {
 
@@ -266,9 +271,10 @@ public class russianRouletteGUI extends JFrame {
     }
 
 
- 
+    
     // GAME SCREEN
- 
+    
+
     private void setupGameScreen() {
 
         mainPanel.removeAll();
@@ -371,26 +377,18 @@ public class russianRouletteGUI extends JFrame {
         }
 
 
-        // Gun placeholder
-        gunLabel =
-            new JLabel("GUN");
+        // Revolver
+        revolver =
+            new RevolverPanel();
 
-        gunLabel.setFont(
-            new Font(
-                "Arial",
-                Font.BOLD,
-                45
-            )
+        revolver.setBounds(
+            650,
+            150,
+            320,
+            180
         );
 
-        gunLabel.setBounds(
-            730,
-            210,
-            200,
-            100
-        );
-
-        mainPanel.add(gunLabel);
+        mainPanel.add(revolver);
 
 
         // Current Player
@@ -500,9 +498,9 @@ public class russianRouletteGUI extends JFrame {
     }
 
 
-   
+    
     // PULL TRIGGER
-   
+    
 
     private void pullTrigger() {
 
@@ -565,9 +563,10 @@ public class russianRouletteGUI extends JFrame {
     }
 
 
-  
+    
     // SKIP
     
+
     private void useSkip() {
 
         int currentPlayer =
@@ -602,7 +601,7 @@ public class russianRouletteGUI extends JFrame {
     }
 
 
-   
+    
     // NEXT LIVING PLAYER
     
     private void nextLivingPlayer() {
@@ -665,6 +664,7 @@ public class russianRouletteGUI extends JFrame {
     
     // GAME OVER
     
+
     private void gameOver() {
 
         int winner =
@@ -828,6 +828,137 @@ public class russianRouletteGUI extends JFrame {
                     210
                 );
             }
+        }
+    }
+
+
+    
+    // REVOLVER CLASS
+    
+
+    private class RevolverPanel extends JPanel {
+
+        public RevolverPanel() {
+
+            setOpaque(false);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+
+            super.paintComponent(g);
+
+            Graphics2D g2 =
+                (Graphics2D) g;
+
+            // Barrel
+            g2.fillRect(
+                20,
+                55,
+                145,
+                35
+            );
+
+            // Front sight
+            g2.fillRect(
+                25,
+                45,
+                12,
+                10
+            );
+
+            // Cylinder
+            g2.fillOval(
+                145,
+                40,
+                75,
+                75
+            );
+
+            // Center of cylinder
+            g2.setColor(Color.DARK_GRAY);
+
+            g2.fillOval(
+                170,
+                65,
+                25,
+                25
+            );
+
+            // Back/frame of revolver
+            g2.setColor(Color.BLACK);
+
+            g2.fillRect(
+                205,
+                55,
+                50,
+                45
+            );
+
+            // Hammer
+            g2.fillRect(
+                230,
+                35,
+                35,
+                20
+            );
+
+            // Trigger guard
+            g2.drawOval(
+                195,
+                95,
+                55,
+                45
+            );
+
+            // Trigger
+            g2.drawArc(
+                210,
+                100,
+                25,
+                30,
+                90,
+                180
+            );
+
+            // Handle
+            Polygon handle =
+                new Polygon();
+
+            handle.addPoint(
+                220,
+                100
+            );
+
+            handle.addPoint(
+                260,
+                100
+            );
+
+            handle.addPoint(
+                280,
+                165
+            );
+
+            handle.addPoint(
+                240,
+                170
+            );
+
+            g2.setColor(
+                new Color(
+                    100,
+                    60,
+                    30
+                )
+            );
+
+            g2.fillPolygon(handle);
+
+            // Handle outline
+            g2.setColor(Color.BLACK);
+
+            g2.drawPolygon(handle);
         }
     }
 }
