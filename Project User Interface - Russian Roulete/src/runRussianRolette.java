@@ -16,9 +16,11 @@ public class runRussianRolette {
         
         getPlayerCount playerCount = new getPlayerCount();
         getPlayerNames playerNames = new getPlayerNames();
+
+
         
         
-        //the loop to start the game
+        //the loop to start the process of getting the number of players and names
         while (!gameVerification) {
             System.out.println("Hello, Welcome to Russian Roulette!");
             System.out.println("Rules:");
@@ -29,8 +31,28 @@ public class runRussianRolette {
                 playerNames.getNames(Scan, confirmedPlayerCount);
                 String[] confirmedPlayerNames = playerNames.getNames();
 
+                // Round Object
+                runRounds rounds = new runRounds();
+
+                while (!gameVerification) {
+
+                    System.out.println();
+                    System.out.println("Round: " + rounds.getCurrentRound());
+
+                    System.out.println(
+                        "It is " +
+                        confirmedPlayerNames[rounds.getCurrentPlayer()] +
+                        "'s turn."
+                    );
+                    rounds.nextPlayer(confirmedPlayerCount);
+
+                }
+
+
+
 
 
         }
+        Scan.close();
     }
 }
