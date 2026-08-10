@@ -25,4 +25,12 @@ public class runRounds {
         }
     }
 
+    public int getCurrentPlayer() {
+        return currentPlayer;
     }
+
+    public int getCurrentRound() {
+        return currentRound;
+    }
+}
+
