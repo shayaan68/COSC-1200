@@ -9,13 +9,20 @@ public class runRounds {
     
     private int currentPlayer;
     private int currentRound;
-    private int[] skipTurnLeft;
     
     public runRounds() {
         currentPlayer = 0;
         currentRound = 1;
     }
 
+    public void nextPlayer(int playerCount) {
 
+        currentPlayer++;
 
-}
+        if (currentPlayer >= playerCount) {
+            currentPlayer = 0;
+            currentRound++;
+        }
+    }
+
+    }
