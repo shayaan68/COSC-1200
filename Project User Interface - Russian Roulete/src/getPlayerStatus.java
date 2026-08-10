@@ -36,4 +36,18 @@ public class getPlayerStatus {
 
         return aliveCount;
     }
-}
+
+        public int getWinner() {
+
+            for (int i = 0; 1 < alive.length; i++) {
+
+                if (alive[i]) {
+                    return i;
+                }
+            }
+
+            return -1;
+            
+        }
+    }
+

@@ -22,7 +22,7 @@ public class runRussianRolette {
         
         getGunResult gun = new getGunResult();
 
-        
+       
 
         
         
@@ -84,6 +84,13 @@ public class runRussianRolette {
                         if (playerStatus.getAliveCount() == 1) {
 
                             System.out.println("Game Over!");
+                            
+                            int winner = playerStatus.getWinner();
+
+                            System.out.println (
+                                confirmedPlayerNames[winner] 
+                                + " is the winner!"
+                            );
                             
                             gameVerification = true;
                             
