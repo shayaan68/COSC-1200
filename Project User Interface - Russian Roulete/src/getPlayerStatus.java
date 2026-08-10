@@ -39,7 +39,7 @@ public class getPlayerStatus {
 
         public int getWinner() {
 
-            for (int i = 0; 1 < alive.length; i++) {
+            for (int i = 0; i < alive.length; i++) {
 
                 if (alive[i]) {
                     return i;

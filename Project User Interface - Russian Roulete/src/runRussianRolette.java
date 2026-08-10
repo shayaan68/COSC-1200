@@ -13,6 +13,7 @@ public class runRussianRolette {
         //Declrations for the scanner, game loop, player count, names and the rounds in that order
         Scanner Scan = new Scanner(System.in);
         boolean gameVerification = false;
+        boolean roundVerification = false;
         
         getPlayerCount playerCount = new getPlayerCount();
         
@@ -46,7 +47,7 @@ public class runRussianRolette {
                 
                 getPlayerStatus playerStatus = new getPlayerStatus(confirmedPlayerCount);
 
-                while (!gameVerification) {
+                while (!roundVerification) {
 
                     System.out.println();
                     System.out.println("Round: " + rounds.getCurrentRound());
@@ -81,6 +82,16 @@ public class runRussianRolette {
 
                         skips.resetSkips();
 
+                        if (playerStatus.getAliveCount() > 1) {
+
+                            rounds.nextPlayer(confirmedPlayerCount);
+
+                            while (!playerStatus.isAlive(rounds.getCurrentPlayer())) {
+                            rounds.nextPlayer(confirmedPlayerCount);
+                            }
+                        }
+
+
                         if (playerStatus.getAliveCount() == 1) {
 
                             System.out.println("Game Over!");
@@ -102,21 +113,28 @@ public class runRussianRolette {
 
                             if (playAgain == 1) {
                                 
-                                gameVerification = false;
+                                gameVerification = true;
 
                             } else if (playAgain == 2) {
 
                                 gameVerification = true;
+                                roundVerification = true;
                             }
                         }
 
                     } else {
 
+
                         System.out.println(
                             confirmedPlayerNames[rounds.getCurrentPlayer()]
                             + " Survived"
                         );
+
                         rounds.nextPlayer(confirmedPlayerCount);
+
+                        while (!playerStatus.isAlive(rounds.getCurrentPlayer())) {
+                            rounds.nextPlayer(confirmedPlayerCount);
+                        }
                     }  
                 }
 
@@ -132,6 +150,10 @@ public class runRussianRolette {
                         );
 
                         rounds.nextPlayer(confirmedPlayerCount);
+
+                        while (!playerStatus.isAlive(rounds.getCurrentPlayer())) {
+                            rounds.nextPlayer(confirmedPlayerCount);
+                        }
 
                     } else {
 

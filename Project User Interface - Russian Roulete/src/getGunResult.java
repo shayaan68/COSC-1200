@@ -14,7 +14,7 @@ public class getGunResult {
     public getGunResult() {
 
         //the bullet gets randomly placed in the chamber or in this case an positon in the array is randomly chosen as the loaded chamber
-        int loadedChamber = random.nextInt(6);
+        loadedChamber = random.nextInt(6);
 
         // Starts at the first position of the array or in this case, where the revolver cynlinder span
         currentChamber = 0;
