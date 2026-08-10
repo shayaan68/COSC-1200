@@ -10,6 +10,8 @@ public class runRussianRolette {
 
     public static void main(String[] args) throws Exception {
 
+        new russianRouletteGUI();
+
         //Declrations for the scanner, game loop, player count, names and the rounds in that order
         Scanner Scan = new Scanner(System.in);
         boolean gameVerification = false;
@@ -103,7 +105,7 @@ public class runRussianRolette {
                                 + " is the winner!"
                             );
                             
-                            gameVerification = true;
+                            
                             
                             System.out.println("Would you like to play again?");
                             System.out.println("1. Yes");
@@ -113,7 +115,7 @@ public class runRussianRolette {
 
                             if (playAgain == 1) {
                                 
-                                gameVerification = true;
+                                roundVerification = true;
 
                             } else if (playAgain == 2) {
 
