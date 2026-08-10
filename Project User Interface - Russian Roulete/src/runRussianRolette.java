@@ -15,8 +15,12 @@ public class runRussianRolette {
         boolean gameVerification = false;
         
         getPlayerCount playerCount = new getPlayerCount();
+        
         getPlayerNames playerNames = new getPlayerNames();
+        
         getPlayerChoice playerChoice = new getPlayerChoice();
+        
+        getGunResult gun = new getGunResult();
 
         
         
@@ -28,6 +32,7 @@ public class runRussianRolette {
 
                 playerCount.numberOfPlayers(Scan);
                 int confirmedPlayerCount = playerCount.numberOfPlayers();
+                
                 playerNames.getNames(Scan, confirmedPlayerCount);
                 String[] confirmedPlayerNames = playerNames.getNames();
 
@@ -35,7 +40,7 @@ public class runRussianRolette {
                 runRounds rounds = new runRounds();
 
                 //Skip Objects
-                getSkipLeft skips = new getSkipsLeft(confirmedPlayerCount);
+                getSkipsLeft skips = new getSkipsLeft(confirmedPlayerCount);
 
                 while (!gameVerification) {
 
@@ -51,7 +56,7 @@ public class runRussianRolette {
                 int confirmedPlayerChoice = playerChoice.getChoice(Scan);
 
 
-                // Pull Trigger
+                // Pull Trigger and the two outcomes of it
                 if (confirmedPlayerChoice == 1) {
 
                     System.out.println(
@@ -59,13 +64,26 @@ public class runRussianRolette {
                         + " pulls the trigger."
                     );
 
-                    
+                    boolean playerDied = gun.pullTrigger();
 
-                    rounds.nextPlayer(confirmedPlayerCount);
+                    if (playerDied) {
+                        
+                        System.out.println(
+                            confirmedPlayerNames[rounds.getCurrentPlayer()]
+                            + " has died!"
+                        );
+                            skips.resetSkips();
 
+                    } else {
+                        System.out.println(
+                            confirmedPlayerNames[rounds.getCurrentPlayer()]
+                            + "Survived"
+                        );
+                        rounds.nextPlayer(confirmedPlayerCount);
+                    }  
                 }
 
-
+                
                 // Skip
                 else if (confirmedPlayerChoice == 2) {
 
