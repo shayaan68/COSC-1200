@@ -16,7 +16,7 @@ public class runRussianRolette {
         
         getPlayerCount playerCount = new getPlayerCount();
         getPlayerNames playerNames = new getPlayerNames();
-
+        getPlayerChoice playerChoice = new getPlayerChoice();
 
         
         
@@ -34,6 +34,9 @@ public class runRussianRolette {
                 // Round Object
                 runRounds rounds = new runRounds();
 
+                //Skip Objects
+                getSkipLeft skips = new getSkipsLeft(confirmedPlayerCount);
+
                 while (!gameVerification) {
 
                     System.out.println();
@@ -44,15 +47,49 @@ public class runRussianRolette {
                         confirmedPlayerNames[rounds.getCurrentPlayer()] +
                         "'s turn."
                     );
+                   // Get player's choice
+                int confirmedPlayerChoice = playerChoice.getChoice(Scan);
+
+
+                // Pull Trigger
+                if (confirmedPlayerChoice == 1) {
+
+                    System.out.println(
+                        confirmedPlayerNames[rounds.getCurrentPlayer()]
+                        + " pulls the trigger."
+                    );
+
+                    
+
                     rounds.nextPlayer(confirmedPlayerCount);
 
                 }
 
 
+                // Skip
+                else if (confirmedPlayerChoice == 2) {
 
+                    if (skips.useSkip(rounds.getCurrentPlayer())) {
 
+                        System.out.println(
+                            confirmedPlayerNames[rounds.getCurrentPlayer()]
+                            + " used their skip."
+                        );
 
+                        rounds.nextPlayer(confirmedPlayerCount);
+
+                    } else {
+
+                        System.out.println(
+                            confirmedPlayerNames[rounds.getCurrentPlayer()]
+                            + " has already used their skip."
+                        );
+
+                    }
+                }
+            }
         }
+
         Scan.close();
     }
 }
