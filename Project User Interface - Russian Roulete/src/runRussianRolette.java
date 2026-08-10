@@ -23,6 +23,8 @@ public class runRussianRolette {
         getGunResult gun = new getGunResult();
 
         
+
+        
         
         //the loop to start the process of getting the number of players and names
         while (!gameVerification) {
@@ -39,8 +41,10 @@ public class runRussianRolette {
                 // Round Object
                 runRounds rounds = new runRounds();
 
-                //Skip Objects
+                //Skip Objects (objects that have changes in their status)
                 getSkipsLeft skips = new getSkipsLeft(confirmedPlayerCount);
+                
+                getPlayerStatus playerStatus = new getPlayerStatus(confirmedPlayerCount);
 
                 while (!gameVerification) {
 
@@ -72,12 +76,38 @@ public class runRussianRolette {
                             confirmedPlayerNames[rounds.getCurrentPlayer()]
                             + " has died!"
                         );
-                            skips.resetSkips();
+
+                        playerStatus.playerDied(rounds.getCurrentPlayer());
+
+                        skips.resetSkips();
+
+                        if (playerStatus.getAliveCount() == 1) {
+
+                            System.out.println("Game Over!");
+                            
+                            gameVerification = true;
+                            
+                            System.out.println("Would you like to play again?");
+                            System.out.println("1. Yes");
+                            System.out.println("2. No");
+
+                            int playAgain = Scan.nextInt();
+
+                            if (playAgain == 1) {
+                                
+                                gameVerification = false;
+
+                            } else if (playAgain == 2) {
+
+                                gameVerification = true;
+                            }
+                        }
 
                     } else {
+
                         System.out.println(
                             confirmedPlayerNames[rounds.getCurrentPlayer()]
-                            + "Survived"
+                            + " Survived"
                         );
                         rounds.nextPlayer(confirmedPlayerCount);
                     }  
